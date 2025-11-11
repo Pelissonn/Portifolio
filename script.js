@@ -63,7 +63,7 @@ document.querySelectorAll(".pergunta1").forEach(botao => {
                 resposta = "Falo português (nativo), inglês (nível C2) e japonês (N5, quase encaminhando para N4). Além desses, tenho grande vontade de aprender italiano, alemão e francês futuramente!";
                 break;
             case "futuro":
-                resposta = "Para o meu futuro, penso em cursar uma faculdade de economia ou contadorismo no Japão. Falando sobre profissões, ainda não me decidi, mas áreas envolvendo programação ou valores me interessam.";
+                resposta = "Para o meu futuro, penso em cursar uma faculdade de economia ou contabilidade no Japão. Falando sobre profissões, ainda não me decidi, mas áreas envolvendo programação ou valores me interessam.";
                 break;
             default:
                 resposta = "Boa pergunta! Me pergunte algo sobre mim que eu te conto!";
@@ -143,4 +143,5 @@ function mascara_telefone()
                 }
             }
         }
+
 
