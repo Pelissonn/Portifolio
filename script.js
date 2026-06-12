@@ -64,10 +64,10 @@ document.querySelectorAll(".pergunta1").forEach(botao => {
                 resposta = "Gosto de correr de kart, tocar piano, jogar videogames e xadrez, acampar, assistir lives e criar pequenos jogos 3D usando Unity.";
                 break;
             case "idiomas":
-                resposta = "Falo português (nativo), inglês (nível C2) e japonês (N5, quase encaminhando para N4). Além desses, tenho grande vontade de aprender italiano, alemão e francês futuramente!";
+                resposta = "Falo português (nativo), inglês (nível C2) e japonês (N4). Além desses, tenho grande vontade de aprender italiano, alemão e francês futuramente!";
                 break;
             case "futuro":
-                resposta = "Para o meu futuro, penso em cursar uma faculdade de economia ou contabilidade no Japão. Falando sobre profissões, ainda não me decidi, mas áreas envolvendo programação ou valores me interessam.";
+                resposta = "Para o meu futuro, penso em cursar uma faculdade de economia ou contabilidade. Falando sobre profissões, penso em trabalhar na área de setor privado ou mercado financeiro.";
                 break;
             default:
                 resposta = "Boa pergunta! Me pergunte algo sobre mim que eu te conto!";
