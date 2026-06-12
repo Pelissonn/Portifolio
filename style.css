@@ -1,5 +1,4 @@
 :root {
-
     --bg: #f5f7fa;
     --card: #e8ecf4;
     --text: #2c3e50;
@@ -35,85 +34,87 @@ body.dark {
     --legenda-icon-color: black;
 }
 
-
 * {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    transition: 0.4s;
     font-family: "Barlow", sans-serif;
 }
 
 body {
     background-color: var(--bg);
     color: var(--text);
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-
-.theme-toggle {
+/* BOTÃO MODO ESCURO FLUTUANTE PREMIUM */
+.theme-toggle-btn {
     position: fixed;
-    top: 20px;
-    left: 20px;
+    top: 25px;
+    left: 25px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--card);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 24px var(--shadow);
+    cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
-    background-color: var(--card);
-    padding: 8px 14px;
-    border-radius: 30px;
-    box-shadow: 0 2px 8px var(--shadow);
+    justify-content: center;
     z-index: 1000;
-    font-size: 0.9rem;
-    color: var(--text);
+    transition: background-color 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 40px;
-    height: 20px;
+.theme-toggle-btn:hover {
+    transform: scale(1.08);
 }
 
-.switch input {
+.theme-toggle-btn:active {
+    transform: scale(0.95);
+}
+
+/* Ícones SVG do Botão */
+.theme-toggle-btn svg {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+}
+
+/* Comportamento no Modo Claro */
+.theme-toggle-btn .sun-icon {
+    color: #ffb703;
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.theme-toggle-btn .moon-icon {
+    color: #a0aec0;
     opacity: 0;
-    width: 0;
-    height: 0;
+    transform: rotate(-90deg) scale(0.6);
 }
 
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: #ccc;
-    border-radius: 20px;
-    transition: 0.3s;
+/* Transição para o Modo Escuro */
+body.dark .theme-toggle-btn .sun-icon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.6);
 }
 
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    left: 2px;
-    bottom: 2px;
-    background-color: white;
-    border-radius: 50%;
-    transition: 0.3s;
+body.dark .theme-toggle-btn .moon-icon {
+    color: #f1c40f;
+    opacity: 1;
+    transform: rotate(0deg);
 }
 
-input:checked + .slider {
-    background-color: #667eea;
-}
-
-input:checked + .slider:before {
-    transform: translateX(20px);
-}
-
-/*CHATBOT*/
+/* CHATBOT */
 .main {
     height: 100vh;
     background-color: var(--bg);
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    transition: background-color 0.4s ease;
 }
 
 .chatbot-box {
@@ -126,6 +127,7 @@ input:checked + .slider:before {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: background-color 0.4s ease;
 }
 
 .chatbot-box-text h2 {
@@ -134,6 +136,7 @@ input:checked + .slider:before {
     font-weight: 600;
     margin-bottom: 0.8rem;
     line-height: 1.2;
+    transition: color 0.4s ease;
 }
 
 .resposta-texto {
@@ -144,7 +147,7 @@ input:checked + .slider:before {
     line-height: 1.6;
     min-height: 3rem;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, color 0.4s ease;
 }
 
 .chatbot-buttons {
@@ -169,6 +172,7 @@ input:checked + .slider:before {
     cursor: pointer;
     text-align: center;
     white-space: nowrap;
+    transition: background-color 0.3s ease, color 0.4s ease;
 }
 
 .pergunta1:hover {
@@ -179,7 +183,7 @@ input:checked + .slider:before {
     background-color: var(--button-active);
 }
 
-/*HABILIDADES*/
+/* HABILIDADES */
 .habilidades-section {
     background-color: var(--bg);
     padding: 4rem 2rem;
@@ -187,6 +191,7 @@ input:checked + .slider:before {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.4s ease;
 }
 
 .habilidades-container {
@@ -200,6 +205,7 @@ input:checked + .slider:before {
     text-align: center;
     margin-bottom: 2rem;
     font-weight: 600;
+    transition: color 0.4s ease;
 }
 
 .legenda-habilidades {
@@ -217,6 +223,7 @@ input:checked + .slider:before {
     box-shadow: 0 4px 12px var(--shadow);
     text-align: center;
     line-height: 1.5;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .legenda-icone {
@@ -230,6 +237,7 @@ input:checked + .slider:before {
     justify-content: center;
     font-weight: bold;
     font-size: 0.9rem;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .habilidades-grid-superior {
@@ -261,8 +269,9 @@ input:checked + .slider:before {
     width: 100%;
     max-width: 300px;
     min-height: 220px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 8px var(--shadow);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease;
 }
 
 .habilidade-card:hover {
@@ -276,6 +285,7 @@ input:checked + .slider:before {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    transition: color 0.4s ease;
 }
 
 .progresso-circulo {
@@ -296,6 +306,7 @@ input:checked + .slider:before {
     fill: none;
     stroke: var(--circle-bg);
     stroke-width: 4;
+    transition: stroke 0.4s ease;
 }
 
 .circulo-progresso {
@@ -305,7 +316,7 @@ input:checked + .slider:before {
     stroke-linecap: round;
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
-    transition: stroke-dashoffset 1s ease-in-out;
+    transition: stroke-dashoffset 1s ease-in-out, stroke 0.4s ease;
 }
 
 .progresso-texto {
@@ -313,10 +324,10 @@ input:checked + .slider:before {
     color: var(--title);
     font-size: 1.1rem;
     font-weight: 600;
+    transition: color 0.4s ease;
 }
 
-
-/* MODAL */
+/* MODAL NATIVO */
 dialog {
     border: none;
     border-radius: 12px;
@@ -326,12 +337,7 @@ dialog {
     background-color: var(--card);
     color: var(--text);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: modalPop 0.35s ease-out;
-    z-index: 9999;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 dialog::backdrop {
@@ -350,6 +356,7 @@ dialog::backdrop {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    transition: color 0.4s ease;
 }
 
 .modal-content p {
@@ -358,6 +365,7 @@ dialog::backdrop {
     margin-bottom: 24px;
     padding: 0 8px;
     color: var(--text);
+    transition: color 0.4s ease;
 }
 
 dialog button {
@@ -369,13 +377,12 @@ dialog button {
     cursor: pointer;
     font-weight: 600;
     font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 dialog button:hover {
     background: var(--button-hover);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 dialog button:active {
@@ -390,6 +397,7 @@ dialog button:active {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.4s ease;
 }
 
 .contato-container {
@@ -400,6 +408,7 @@ dialog button:active {
     padding: 3rem 2.5rem;
     box-shadow: 0 15px 40px var(--shadow);
     text-align: center;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .contato-titulo {
@@ -407,6 +416,7 @@ dialog button:active {
     color: var(--title);
     margin-bottom: 1rem;
     font-weight: 700;
+    transition: color 0.4s ease;
 }
 
 .contato-subtitulo {
@@ -414,6 +424,7 @@ dialog button:active {
     color: var(--text);
     margin-bottom: 2.5rem;
     opacity: 0.9;
+    transition: color 0.4s ease;
 }
 
 .form-contato {
@@ -421,6 +432,14 @@ dialog button:active {
     flex-direction: column;
     gap: 1.4rem;
     margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-group {
+    width: 100%;
+    text-align: left;
 }
 
 .form-group input,
@@ -429,245 +448,30 @@ dialog button:active {
     padding: 14px 16px;
     border: 2px solid transparent;
     border-radius: 10px;
-    background: rgba(255,255,255,0.1);
-    color: var(--title);
+    background-color: var(--button-bg);
+    color: var(--text);
     font-size: 1rem;
     outline: none;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.4s ease;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 4px rgba(94, 129, 172, 0.2);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: var(--text);
-    opacity: 0.7;
+    border-color: var(--circle-progress);
+    background-color: var(--bg);
 }
 
 .btn-enviar {
     padding: 14px 32px;
-    background: var(--accent);
-    color: rgb(255, 255, 255);
+    background-color: var(--circle-progress);
+    color: var(--bg);
+    font-size: 1.05rem;
+    font-weight: 600;
     border: none;
     border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    align-self: center;
-    min-width: 350px;
-}
-
-.btn-enviar:hover {
-    background: #7a7a7a;
-}
-
-.contato-info {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: rgba(255,255,255,0.05);
-    border-radius: 10px;
-    font-size: 1rem;
-    color: var(--text);
-}
-
-.contato-info a {
-    color: var(--text);
-    text-decoration: none;
-}
-
-.contato-info a:hover {
-    text-decoration: underline;
-}
-
-/* FOOTER */
-.footer {
-    background: var(--card);
-    padding: 3.5rem 2rem 2.5rem;
-    text-align: center;
-    margin-top: 6rem;
-    border-top: 2px solid var(--accent);
-    color: var(--text);
-}
-
-.footer-content h3 {
-    font-size: 1.8rem;
-    color: var(--title);
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-}
-
-.footer-content > p {
-    font-size: 1.05rem;
-    opacity: 0.9;
-    margin-bottom: 1.2rem;
-}
-
-.github-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255,255,255,0.08);
-    padding: 0.9rem 1.6rem;
-    border-radius: 50px;
-    text-decoration: none;
-    color: var(--text);
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.4s ease;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-    margin: 1rem 0;
-}
-
-.github-link svg {
-    width: 24px;
-    height: 24px;
-    fill: var(--accent);
-    transition: fill 0.3s;
-}
-
-.github-link:hover {
-    background: var(--accent);
-    color: white;
-    transform: translateY(-4px);
-}
-
-.github-link:hover svg {
-    fill: white;
-}
-
-.copyright {
-    font-size: 0.9rem;
-    opacity: 0.7;
-    margin-top: 1.5rem;
-    font-weight: 500;
-}
-
-@media (max-width: 1024px) {
-    .chatbot-box { 
-        width: 90%; padding: 1.2rem; 
-    }
-    .chatbot-buttons { 
-        gap: 0.4rem; 
-    }
-    .pergunta1 { 
-        font-size: 0.75rem; padding: 0.45rem 0.6rem;
-    }
-    .habilidades-grid-superior {
-         gap: 1.5rem;
-         }
-    .habilidades-grid-inferior { 
-        gap: 2rem; 
-    }
-    .contato-container { 
-        
-        width: 88%; padding: 3.5rem 3rem; 
-    }
-    .contato-titulo { 
-        font-size: 2.8rem;
-    }
-    .btn-enviar {
-         min-width: 260px; padding: 18px 40px;
-    }
-}
-
-@media (max-width: 900px) {
-    .habilidades-grid-superior,
-    .habilidades-grid-inferior {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
-    .habilidades-titulo { 
-        font-size: 2.3rem; 
-    }
-    .legenda-habilidades { 
-        padding: 0.8rem 1rem; font-size: 0.92rem; 
-    }
-    .contato-titulo { 
-        font-size: 2.6rem; 
-    }
-    .contato-subtitulo { 
-        font-size: 1.2rem; 
-    }
-    .form-group input,
-    .form-group textarea {
-        padding: 18px 20px;
-        font-size: 1.15rem;
-    }
-    .btn-enviar { 
-        font-size: 1.3rem; min-width: 250px; 
-    }
-}
-
-@media (max-width: 768px) {
-    .theme-toggle {
-        top: 15px;
-        left: 15px;
-        padding: 8px 14px;
-        gap: 10px;
-    }
-    .toggle-label { font-size: 0.85rem; }
-
-    .chatbot-section { 
-        padding-top: 80px; 
-    }
-    .chatbot-box {
-        margin-top: 5%;
-        width: 92%;
-        height: 85%;
-    }
-    .chatbot-box-text h2 { 
-        font-size: 1.9rem; 
-    }
-    .pergunta1 {
-        flex: 1 1 100%;
-        font-size: 0.85rem;
-        padding: 0.7rem;
-    }
-
-    .habilidades-section{ 
-        padding: 3rem 1.5rem; 
-    }
-    .habilidades-titulo { 
-        font-size: 2.2rem; 
-    }
-    .legenda-habilidades {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        font-size: 0.9rem;
-    }
-    .legenda-icone { 
-        width: 24px; height: 24px; font-size: 0.8rem; 
-    }
-
-    .contato-section { 
-        padding: 4rem 1.5rem; 
-    }
-    .contato-container {
-        width: 95%;
-        padding: 3rem 2rem;
-    }
-    .contato-titulo { font-size: 2.4rem; }
-    .contato-subtitulo { 
-        font-size: 1.15rem; margin-bottom: 2.5rem; 
-    }
-    .form-group input,
-    .form-group textarea {
-        padding: 16px 18px;
-        font-size: 1.1rem;
-    }
-    .btn-enviar {
-        padding: 16px 36px;
-        font-size: 1.2rem;
-        min-width: 100%;
-    }
-    .contato-info { 
-        font-size: 1rem; padding: 1.8rem;
-     }
-}
