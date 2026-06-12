@@ -66,45 +66,84 @@ body {
     transition: background-color 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
+.theme-toggle-btn {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 16px; /* Cantos levemente arredondados, estilo iOS modernizado */
+    background: rgba(232, 236, 244, 0.6); /* Efeito de vidro */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Efeitos de Hover e Clique */
 .theme-toggle-btn:hover {
-    transform: scale(1.08);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 24px 0 rgba(94, 129, 172, 0.2);
+    border-color: var(--circle-progress);
 }
 
 .theme-toggle-btn:active {
-    transform: scale(0.95);
+    transform: translateY(0) scale(0.95);
 }
 
-/* Ícones SVG do Botão */
+/* Ícones SVG Minimalistas */
 .theme-toggle-btn svg {
     position: absolute;
-    width: 22px;
-    height: 22px;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* Comportamento no Modo Claro */
+/* Estado: Modo Claro */
 .theme-toggle-btn .sun-icon {
-    color: #ffb703;
+    stroke: #d97706; /* Laranja queimado elegante */
     opacity: 1;
-    transform: rotate(0deg);
+    transform: scale(1) rotate(0deg);
 }
 
 .theme-toggle-btn .moon-icon {
-    color: #a0aec0;
+    stroke: #94a3b8;
     opacity: 0;
-    transform: rotate(-90deg) scale(0.6);
+    transform: scale(0.3) rotate(-45deg);
 }
 
-/* Transição para o Modo Escuro */
+/* Transição Mágica para o Modo Escuro */
+body.dark .theme-toggle-btn {
+    background: rgba(79, 77, 89, 0.4); /* Vidro escuro */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), 
+                inset 0 0 10px rgba(255, 255, 255, 0.03);
+}
+
+body.dark .theme-toggle-btn:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1), 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
 body.dark .theme-toggle-btn .sun-icon {
     opacity: 0;
-    transform: rotate(90deg) scale(0.6);
+    transform: scale(0.3) rotate(90deg);
 }
 
 body.dark .theme-toggle-btn .moon-icon {
-    color: #f1c40f;
+    stroke: #f1c40f; /* Amarelo ouro limpo */
     opacity: 1;
-    transform: rotate(0deg);
+    transform: scale(1) rotate(0deg);
 }
 
 /* CHATBOT */
